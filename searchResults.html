@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+    <h1>All Results</h1>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{{ url_for('bookInfo', book_isbn=book.isbn)  }}">
+                    {{ book.title }} by {{ book.author }}
+                </a>
+				
+            </li>
+        {% endfor %}
+    </ul>
+
+<form action="{{ url_for('logout')}}">
+	<div class="form-group">
+			<button class="btn btn-primary">Logout</button>
+	</div>
+
+
+</form>
+
+{% endblock %}
+
+
+
